@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Bar, Pie } from "react-chartjs-2";
-import "../style.css/Dashboard.css"; // Import chart components
+import "../CSS/ReportsAndCharts.css"; // Import chart components
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from "chart.js";
 
 // Register necessary Chart.js components

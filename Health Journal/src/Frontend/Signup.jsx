@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../style.css/signup.css';
+import '../CSS/signup.css';
 const Signup = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
-        window.location.href = "/";
+        window.location.href = "/login";
     };
 
     return (

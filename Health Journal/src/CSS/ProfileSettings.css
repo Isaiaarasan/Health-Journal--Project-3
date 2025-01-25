@@ -1,0 +1,101 @@
+/* Netflix Themed Profile Edit Page */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #141414; /* Dark background for a Netflix look */
+  color: #e2eae7; /* Light text */
+}
+.profile-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #141414; /* Dark background similar to Netflix */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Slight shadow for depth */
+  color: white;
+}
+
+.profile-container h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #e50914; /* Netflix Red */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #b3b3b3; /* Light gray text for labels */
+  margin-bottom: 10px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #e50914; /* Netflix Red when focused */
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #e50914; /* Netflix Red */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}/* Success Notification Styles */
+.notification {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.ok-button {
+  background-color: #fff;
+  color: #4caf50;
+  border: none;
+  padding: 5px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.ok-button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Input fields and buttons hover effect */
+.submit-btn:hover {
+  background-color: #c40807; /* Darker shade of red for hover */
+}
+
+.form-group input:hover {
+  background-color: #444; /* Slightly lighter dark background on hover */
+}

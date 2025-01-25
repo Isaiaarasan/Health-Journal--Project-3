@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../style.css/Login.css';
+import '../CSS/Login.css';
 const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();

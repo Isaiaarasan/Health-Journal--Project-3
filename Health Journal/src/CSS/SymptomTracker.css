@@ -1,0 +1,69 @@
+/* Netflix Themed Symptom Tracker Page */
+.symptom-tracker-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #141414; /* Dark background similar to Netflix */
+  border-radius: 8px;
+  color: white;
+}
+
+.symptom-tracker-container h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  color: #e50914; /* Netflix Red */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: white;
+}
+
+textarea {
+  height: 120px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #e50914; /* Netflix Red on focus */
+}
+
+.submit-btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #b4070c; /* Darker red for hover effect */
+}
+
+.submit-btn:active {
+  background-color: #8e0305; /* Even darker red for active state */
+}

@@ -1,0 +1,89 @@
+/* Medical History */
+.medical-history {
+  background-color: #222;
+  padding: 40px;
+  border-radius: 8px;
+  margin-top: 80px;
+}
+
+.medical-history h2 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.medical-history .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.medical-history .card {
+  width: 300px;
+  height: 400px;
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.medical-history .card:hover {
+  transform: scale(1.05);
+}
+
+.medical-history .card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.medical-history .card .card-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  display: none;
+}
+
+.medical-history .card:hover .card-info {
+  display: block;
+}
+
+.medical-history .card .card-info h4 {
+  font-size: 18px;
+}
+
+.medical-history .card .card-info p {
+  font-size: 14px;
+}
+
+.medical-history .card .card-info button {
+  background-color: #e50914;
+  color: white;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.medical-history .card .card-info button:hover {
+  background-color: #f40612;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .medical-history .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .medical-history .card {
+    width: 90%;
+    height: auto;
+  }
+}

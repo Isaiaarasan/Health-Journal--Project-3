@@ -1,91 +1,76 @@
-import React, { useState, useEffect } from "react";
-import "../style.css/SymptomTracker.css";
+import React, { useState } from "react";
+import "../CSS/SymptomTracker.css";
 
 const SymptomTracker = () => {
-  const [symptoms, setSymptoms] = useState([]);
-  const [formData, setFormData] = useState({
-    symptom: "",
-    severity: "",
-    duration: "",
-  });
+  const [symptom, setSymptom] = useState("");
+  const [severity, setSeverity] = useState("Mild");
+  const [date, setDate] = useState("");
+  const [notes, setNotes] = useState("");
 
-  // Load symptoms from Local Storage when the component mounts
-  useEffect(() => {
-    const storedSymptoms = JSON.parse(localStorage.getItem("symptoms")) || [];
-    setSymptoms(storedSymptoms);
-  }, []);
-
-  // Handle input change
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  // Add new symptom
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedSymptoms = [...symptoms, formData];
-    setSymptoms(updatedSymptoms);
-    localStorage.setItem("symptoms", JSON.stringify(updatedSymptoms)); // Save to Local Storage
-    setFormData({ symptom: "", severity: "", duration: "" }); // Reset form
-  };
-
-  // Delete a symptom
-  const handleDelete = (index) => {
-    const updatedSymptoms = symptoms.filter((_, i) => i !== index);
-    setSymptoms(updatedSymptoms);
-    localStorage.setItem("symptoms", JSON.stringify(updatedSymptoms)); // Update Local Storage
+    // In a real app, save the symptom data to a database or state
+    console.log("Symptom Submitted", { symptom, severity, date, notes });
+    alert("Symptom recorded successfully!");
+    // Clear input fields after submission
+    setSymptom("");
+    setSeverity("Mild");
+    setDate("");
+    setNotes("");
   };
 
   return (
-    <div className="container">
-      <h2>Symptom Tracker</h2>
+    <div className="symptom-tracker-container">
+      <h2>Track Your Symptoms</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="symptom"
-          placeholder="Symptom"
-          value={formData.symptom}
-          onChange={handleChange}
-          required
-        />
-        <select
-          name="severity"
-          value={formData.severity}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Severity</option>
-          <option value="Mild">Mild</option>
-          <option value="Moderate">Moderate</option>
-          <option value="Severe">Severe</option>
-        </select>
-        <input
-          type="text"
-          name="duration"
-          placeholder="Duration (in hours)"
-          value={formData.duration}
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Add Symptom</button>
-      </form>
+        <div className="form-group">
+          <label htmlFor="symptom">Symptom</label>
+          <input
+            type="text"
+            id="symptom"
+            placeholder="Enter your symptom"
+            value={symptom}
+            onChange={(e) => setSymptom(e.target.value)}
+            required
+          />
+        </div>
 
-      <h3>Tracked Symptoms</h3>
-      {symptoms.length === 0 ? (
-        <p>No symptoms recorded yet.</p>
-      ) : (
-        <ul>
-          {symptoms.map((record, index) => (
-            <li key={index} className="symptom-item">
-              <strong>{record.symptom}</strong> - {record.severity}  
-              <br />
-              <em>Duration:</em> {record.duration} hours
-              <br />
-              <button onClick={() => handleDelete(index)}>Delete</button>
-            </li>
-          ))}
-        </ul>
-      )}
+        <div className="form-group">
+          <label htmlFor="severity">Severity</label>
+          <select
+            id="severity"
+            value={severity}
+            onChange={(e) => setSeverity(e.target.value)}
+          >
+            <option value="Mild">Mild</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Severe">Severe</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="date">Date</label>
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="notes">Notes</label>
+          <textarea
+            id="notes"
+            placeholder="Additional notes..."
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+          ></textarea>
+        </div>
+
+        <button type="submit" className="submit-btn">Submit</button>
+      </form>
     </div>
   );
 };

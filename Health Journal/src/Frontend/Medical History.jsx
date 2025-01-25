@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../style.css/MedicalHistory.css";
+import "../CSS/MedicalHistory.css";
 
 const MedicalHistory = () => {
   const [history, setHistory] = useState([]);
