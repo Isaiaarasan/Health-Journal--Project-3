@@ -1,0 +1,119 @@
+/* General styles for the section */
+.tracking-features {
+    background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  /* Grid Layout */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Styles for each feature card */
+  .feature-card {
+    background-color: #333333;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* Hover effect for each feature card */
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
+    background-color: #444444; /* Slightly lighter background on hover */
+  }
+  
+  /* Icon styling */
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    border: 3px solid;
+    font-size: 2rem;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Hover effect on icons */
+  .feature-icon:hover {
+    transform: scale(1.2); /* Enlarge icon on hover */
+  }
+  
+  /* Typography */
+  h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  p {
+    font-size: 0.875rem;
+    color: #b3b3b3;
+    margin-bottom: 15px;
+  }
+  
+  /* View Details Button */
+  .view-details-btn {
+    padding: 8px 20px;
+    background-color: #e50914; /* Netflix red */
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Hover effect for View Details Button */
+  .view-details-btn:hover {
+    background-color: #f40612;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 items per row on small screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .grid-container {
+      grid-template-columns: 1fr; /* 1 item per row on extra small screens */
+    }
+  }
+  .go-to-dashboard-btn {
+    position: absolute; /* Absolute position relative to parent */
+    bottom: 20px; /* Adjust space from the bottom */
+    left: 50%; /* Position the button at the center horizontally */
+    transform: translateX(-50%); /* Center the button exactly */
+    padding: 12px 24px;
+    background-color: #ff4500; /* Orange color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+  }
+  
+  .go-to-dashboard-btn:hover {
+    background-color: #ff6347; /* Lighter orange */
+  }

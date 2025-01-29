@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom"; 
 import "../CSS/Dashboard.css";
+import TrackingFeatures from "./TrackingFeatures"; // Import the TrackingFeatures component
 
 const Dashboard = () => {
   const [isProfileVisible, setIsProfileVisible] = useState(false);
@@ -10,16 +11,15 @@ const Dashboard = () => {
   };
 
   return (
-    
     <div className="dashboard-container">
       <h2>Welcome to Your Dashboard</h2>
 
-      {/* Profile Logo in top-right corner */}
+      {/* Profile Icon Placeholder */}
       <div className="profile-logo" onClick={handleProfileClick}>
-        <img src="profile-logo.png" alt="Profile" />
+        {/* No image, just an empty div */}
       </div>
 
-      {/* Profile Details dropdown */}
+      {/* Profile Details Dropdown */}
       {isProfileVisible && (
         <div className="profile-details">
           <div className="profile-header">
@@ -29,11 +29,9 @@ const Dashboard = () => {
             </button>
           </div>
           <div className="profile-info">
-            <img src="I:\Health Journal- P3\Health Journal\src\image\arasan1.JPG" alt="Profile" className="profile-pic" />
             <p><strong>Name:</strong> Elavarasan </p>
             <p><strong>Email:</strong> arasan9706@gmail.com</p>
-            <p><strong>Address:</strong> Sri Eshwar College of Enfineering,Coimbatore</p>
-            {/* Link to Profile Settings */}
+            <p><strong>Address:</strong> Sri Eshwar College of Engineering, Coimbatore</p>
             <Link to="/profile-settings">
               <button className="edit-btn">Edit Profile</button>
             </Link>
@@ -51,12 +49,12 @@ const Dashboard = () => {
 
       {/* Dashboard Cards */}
       <div className="cards-container">
-        <div className="card">
-          <h4>Profile Settings</h4>
-          <p>Update your personal information, change your password, and upload a new profile picture.</p>
-          <Link to="/profile-settings" className="card-link">Go to Profile Settings</Link>
-        </div>
 
+      <div className="card">
+          <h4>Track Your Symptoms</h4>
+          <p>Keep a record of your health symptoms and their severity.</p>
+          <Link to="/symptom-tracker" className="card-link">Go to Symptom Tracker</Link>
+        </div>
         <div className="card">
           <h4>Health History</h4>
           <p>View your health records, symptoms, and other medical data.</p>
@@ -69,11 +67,13 @@ const Dashboard = () => {
           <Link to="/recent-activities" className="card-link">See Activities</Link>
         </div>
 
+
         <div className="card">
-          <h4>Track Your Symptoms</h4>
-          <p>Keep a record of your health symptoms and their severity.</p>
-          <Link to="/symptom-tracker" className="card-link">Go to Symptom Tracker</Link>
+          <h4>Tracking Features</h4>
+          <p>Track your health conditions, symptoms, medications, activities, and more.</p>
+          <Link to="/tracking-features" className="card-link">Explore Tracking Features</Link>
         </div>
+        
       </div>
     </div>
   );

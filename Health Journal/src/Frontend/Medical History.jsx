@@ -38,13 +38,40 @@ const MedicalHistory = () => {
   };
 
   return (
-    <div className="container">
+    <div className="medical-history">
       <h2>Medical History</h2>
       <form onSubmit={handleSubmit}>
-        <input type="date" name="date" value={formData.date} onChange={handleChange} required />
-        <input type="text" name="diagnosis" placeholder="Diagnosis" value={formData.diagnosis} onChange={handleChange} required />
-        <input type="text" name="medications" placeholder="Medications" value={formData.medications} onChange={handleChange} required />
-        <input type="text" name="doctor" placeholder="Doctor Name" value={formData.doctor} onChange={handleChange} required />
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="diagnosis"
+          placeholder="Diagnosis"
+          value={formData.diagnosis}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="medications"
+          placeholder="Medications"
+          value={formData.medications}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="text"
+          name="doctor"
+          placeholder="Doctor Name"
+          value={formData.doctor}
+          onChange={handleChange}
+          required
+        />
         <button type="submit">Add Record</button>
       </form>
 
@@ -52,19 +79,19 @@ const MedicalHistory = () => {
       {history.length === 0 ? (
         <p>No medical history recorded.</p>
       ) : (
-        <ul>
+        <div className="card-container">
           {history.map((record, index) => (
-            <li key={index} className="history-item">
-              <strong>{record.date}</strong> - {record.diagnosis}  
-              <br />
-              <em>Medications:</em> {record.medications}  
-              <br />
-              <em>Doctor:</em> {record.doctor}  
-              <br />
-              <button onClick={() => handleDelete(index)}>Delete</button>
-            </li>
+            <div key={index} className="card">
+              <div className="card-info">
+                <h4>{record.date}</h4>
+                <p><strong>Diagnosis:</strong> {record.diagnosis}</p>
+                <p><strong>Medications:</strong> {record.medications}</p>
+                <p><strong>Doctor:</strong> {record.doctor}</p>
+                <button onClick={() => handleDelete(index)}>Delete</button>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
   );

@@ -8,8 +8,7 @@ import MedicalHistory from "./Frontend/Medical History"; // Assuming this compon
 import SymptomTracker from "./Frontend/Symptom Tracker"; // Assuming this component exists
 import ReportsCharts from "./Frontend/Reports & Charts"; 
 import Activities from "./Frontend/Activities";
-
-
+import TrackingFeatures from "./Frontend/TrackingFeatures";
 const App = () => {
   return (
     <Router>
@@ -23,7 +22,7 @@ const App = () => {
         <Route path="/symptom-tracker" element={<SymptomTracker />} /> {/* Symptom Tracker */}
         <Route path="/reports-charts" element={<ReportsCharts />} /> {/* Reports & Charts */}
         <Route path="/recent-activities" element={<Activities />} /> {/* Reports & Charts */}
-        <Route path="/symptom-tracker" element={<SymptomTracker />} /> {/* Symptom Tracker route */}
+        <Route path="/tracking-features" element={<TrackingFeatures />} /> {/* Symptom Tracker route */}
 
       </Routes>
     </Router>
