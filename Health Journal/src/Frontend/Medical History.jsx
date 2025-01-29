@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../CSS/MedicalHistory.css";
-
 const MedicalHistory = () => {
   const [history, setHistory] = useState([]);
   const [formData, setFormData] = useState({
@@ -9,19 +8,13 @@ const MedicalHistory = () => {
     medications: "",
     doctor: "",
   });
-
-  // Load history from Local Storage when the component mounts
   useEffect(() => {
     const storedHistory = JSON.parse(localStorage.getItem("medicalHistory")) || [];
     setHistory(storedHistory);
   }, []);
-
-  // Handle input change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
-  // Add new medical record
   const handleSubmit = (e) => {
     e.preventDefault();
     const updatedHistory = [...history, formData];
@@ -29,8 +22,6 @@ const MedicalHistory = () => {
     localStorage.setItem("medicalHistory", JSON.stringify(updatedHistory)); // Save to Local Storage
     setFormData({ date: "", diagnosis: "", medications: "", doctor: "" }); // Reset form
   };
-
-  // Delete a record
   const handleDelete = (index) => {
     const updatedHistory = history.filter((_, i) => i !== index);
     setHistory(updatedHistory);
@@ -74,7 +65,6 @@ const MedicalHistory = () => {
         />
         <button type="submit">Add Record</button>
       </form>
-
       <h3>History Records</h3>
       {history.length === 0 ? (
         <p>No medical history recorded.</p>
@@ -96,5 +86,4 @@ const MedicalHistory = () => {
     </div>
   );
 };
-
 export default MedicalHistory;

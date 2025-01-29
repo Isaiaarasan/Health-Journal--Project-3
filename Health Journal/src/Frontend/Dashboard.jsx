@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom"; 
 import "../CSS/Dashboard.css";
-import TrackingFeatures from "./TrackingFeatures"; // Import the TrackingFeatures component
-
+import LogoutAndSettings from "../Frontend/LogoutAndSettings"; 
 const Dashboard = () => {
   const [isProfileVisible, setIsProfileVisible] = useState(false);
 
@@ -13,13 +12,9 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <h2>Welcome to Your Dashboard</h2>
-
-      {/* Profile Icon Placeholder */}
       <div className="profile-logo" onClick={handleProfileClick}>
-        {/* No image, just an empty div */}
+        <img src="profile-logo.png" alt="Profile" />
       </div>
-
-      {/* Profile Details Dropdown */}
       {isProfileVisible && (
         <div className="profile-details">
           <div className="profile-header">
@@ -29,51 +24,54 @@ const Dashboard = () => {
             </button>
           </div>
           <div className="profile-info">
+            <img src="I:\Health Journal- P3\Health Journal\src\image\arasan1.JPG" alt="Profile" className="profile-pic" />
             <p><strong>Name:</strong> Elavarasan </p>
             <p><strong>Email:</strong> arasan9706@gmail.com</p>
-            <p><strong>Address:</strong> Sri Eshwar College of Engineering, Coimbatore</p>
+            <p><strong>Address:</strong> Sri Eshwar College of Enfineering,Coimbatore</p>
             <Link to="/profile-settings">
               <button className="edit-btn">Edit Profile</button>
             </Link>
           </div>
         </div>
       )}
-
-      {/* Theory Section */}
       <div className="theory-section">
         <h3>Dashboard Overview</h3>
-        <p>
-          Your dashboard gives you a quick overview of your profile, recent activities, and health records. Stay on top of your updates, manage your settings, and access key features of your health journal from here.
-        </p>
+        <p>Your dashboard gives you a quick overview of your profile, recent activities, and health records.</p>
       </div>
-
-      {/* Dashboard Cards */}
       <div className="cards-container">
-
-      <div className="card">
+        <div className="card">
           <h4>Track Your Symptoms</h4>
-          <p>Keep a record of your health symptoms and their severity.</p>
+          <p>Keep a record of your health symptoms.</p>
           <Link to="/symptom-tracker" className="card-link">Go to Symptom Tracker</Link>
         </div>
         <div className="card">
           <h4>Health History</h4>
-          <p>View your health records, symptoms, and other medical data.</p>
+          <p>View your health records and symptoms.</p>
           <Link to="/medical-history" className="card-link">View Health History</Link>
         </div>
-
         <div className="card">
           <h4>Recent Activities</h4>
-          <p>Keep track of recent updates and activities related to your health journal.</p>
+          <p>Keep track of recent updates.</p>
           <Link to="/recent-activities" className="card-link">See Activities</Link>
         </div>
-
-
         <div className="card">
           <h4>Tracking Features</h4>
-          <p>Track your health conditions, symptoms, medications, activities, and more.</p>
+          <p>Track your health conditions and medications.</p>
           <Link to="/tracking-features" className="card-link">Explore Tracking Features</Link>
         </div>
-        
+        <div className="card">
+          <h4>Community & Wellness Resources</h4>
+          <p>Find mental health and wellness resources.</p>
+          <Link to="/charts" className="card-link">Community & Wellness Resources</Link>
+        </div>
+        <div className="card">
+          <h4>Medication & Reminders</h4>
+          <p>Set reminders for your medications.</p>
+          <Link to="/medication-reminders" className="card-link">Medication & Reminders</Link> 
+        </div>
+        <div >
+          <LogoutAndSettings />
+        </div>
       </div>
     </div>
   );

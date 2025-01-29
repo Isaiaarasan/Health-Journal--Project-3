@@ -9,11 +9,17 @@ import SymptomTracker from "./Frontend/Symptom Tracker"; // Assuming this compon
 import ReportsCharts from "./Frontend/Reports & Charts"; 
 import Activities from "./Frontend/Activities";
 import TrackingFeatures from "./Frontend/TrackingFeatures";
+import MedicationAndReminders from "./Frontend/MedicationAndReminders";
+import LogoutAndSettings from "./Frontend/LogoutAndSettings";
+import Charts from "./Frontend/Charts";
+import ManageMedications from "./Frontend/ManageMedications";
+import Landing from "./Frontend/Landing";
+
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} /> {/* Login page */}
+        {/* <Route path="/" element={<Login />} /> Login page */}
         <Route path="/login" element={<Login />} /> {/* Login page */}
         <Route path="/signup" element={<Signup />} /> {/* Signup page */}
         <Route path="/dashboard" element={<Dashboard />} /> {/* Dashboard */}
@@ -23,7 +29,11 @@ const App = () => {
         <Route path="/reports-charts" element={<ReportsCharts />} /> {/* Reports & Charts */}
         <Route path="/recent-activities" element={<Activities />} /> {/* Reports & Charts */}
         <Route path="/tracking-features" element={<TrackingFeatures />} /> {/* Symptom Tracker route */}
-
+        <Route path="/medication-reminders" element={<MedicationAndReminders />} /> {/* Medication & Reminders */}
+        <Route path="/logout-settings" element={<LogoutAndSettings />} /> {/* Logout & Settings */}
+        <Route path="/charts" element={<Charts />} /> {/* Charts */}
+        <Route path="/manage-medications" element={<ManageMedications/>}/> {/* Manage Medications */}
+        <Route path="/" element={<Landing />} /> {/* Landing page */}
       </Routes>
     </Router>
   );

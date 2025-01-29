@@ -1,0 +1,77 @@
+.medication-container {
+    padding: 20px;
+    background-color: #141414;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    min-height: 100vh;
+  }
+  .reminder-section {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15px auto;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .reminder-section:hover {
+    transform: scale(1.02);
+  }
+  
+  .reminder-section h3 {
+    font-size: 20px;
+    color: #e50914;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e50914;
+    padding-bottom: 5px;
+  }
+  
+  .reminder-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .reminder-section li {
+    font-size: 16px;
+    background: #181818;
+    padding: 12px;
+    border-radius: 6px;
+    margin: 6px 0;
+    box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2);
+  }
+  .manage-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #e50914;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+  }
+  
+  .manage-btn:hover {
+    background: #b20710;
+    transform: translateY(-2px);
+  }
+  .reminder-section p {
+    color: #bbbbbb;
+    font-size: 16px;
+    font-style: italic;
+  }
+  @media (max-width: 500px) {
+    .reminder-section {
+      width: 90%;
+    }
+  
+    .manage-btn {
+      width: 80%;
+    }
+  }
+  

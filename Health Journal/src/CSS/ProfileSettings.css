@@ -1,26 +1,18 @@
-/* Netflix Themed Profile Edit Page */
-body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  background-color: #141414; /* Dark background for a Netflix look */
-  color: #e2eae7; /* Light text */
-}
 .profile-container {
   max-width: 600px;
   margin: 50px auto;
   padding: 30px;
-  background-color: #141414; /* Dark background similar to Netflix */
+  background-color: #141414;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Slight shadow for depth */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
   color: white;
 }
-
 .profile-container h2 {
   text-align: center;
   font-size: 28px;
   margin-bottom: 20px;
-  color: #e50914; /* Netflix Red */
+  color: #e50914;
 }
-
 .form-group {
   margin-bottom: 20px;
 }
@@ -28,30 +20,35 @@ body {
 .form-group label {
   font-size: 16px;
   font-weight: bold;
-  color: #b3b3b3; /* Light gray text for labels */
-  margin-bottom: 10px;
+  color: #b3b3b3;
 }
 
 .form-group input {
   width: 100%;
-  padding: 15px;
+  padding: 12px;
   font-size: 16px;
   border: 1px solid #333;
   border-radius: 5px;
   background-color: #333;
   color: white;
-  margin-bottom: 10px;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #e50914; /* Netflix Red when focused */
+  border-color: #e50914;
 }
-
+.profile-preview {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e50914;
+}
 .submit-btn {
   width: 100%;
-  padding: 15px;
-  background-color: #e50914; /* Netflix Red */
+  padding: 12px;
+  background-color: #e50914;
   color: white;
   border: none;
   border-radius: 5px;
@@ -59,10 +56,14 @@ body {
   cursor: pointer;
 }
 
+.submit-btn:hover {
+  background-color: #c40807;
+}
+
 .submit-btn:disabled {
   background-color: #555;
   cursor: not-allowed;
-}/* Success Notification Styles */
+}
 .notification {
   background-color: #4caf50;
   color: white;
@@ -84,18 +85,8 @@ body {
   font-size: 14px;
   cursor: pointer;
   border-radius: 4px;
-  transition: background-color 0.3s;
 }
 
 .ok-button:hover {
   background-color: #f1f1f1;
-}
-
-/* Input fields and buttons hover effect */
-.submit-btn:hover {
-  background-color: #c40807; /* Darker shade of red for hover */
-}
-
-.form-group input:hover {
-  background-color: #444; /* Slightly lighter dark background on hover */
 }

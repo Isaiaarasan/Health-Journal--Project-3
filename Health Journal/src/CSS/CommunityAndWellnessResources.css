@@ -1,0 +1,43 @@
+.wellness-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .wellness-section {
+    margin-bottom: 30px;
+  }
+  
+  .wellness-section h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .wellness-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .wellness-section li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+  }
+  
+  .wellness-section li a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .wellness-section li a:hover {
+    text-decoration: underline;
+  }
+  .wellness-section li strong {
+    font-weight: bold;
+    color: #d9534f;
+  }
+  

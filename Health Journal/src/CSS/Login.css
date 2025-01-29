@@ -1,59 +1,46 @@
-/* General container styling */
 .form-container {
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
-    border: 1px solid #333; /* Dark border */
+    border: 1px solid #333;
     border-radius: 8px;
-    background-color: #141414; /* Dark background, similar to Netflix */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+    background-color: #141414; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
     text-align: center;
 }
-
-/* Heading style */
 .form-container h2 {
     margin-bottom: 20px;
-    color: #e50914; /* Netflix Red */
+    color: #e50914; 
     font-size: 24px;
     font-weight: bold;
 }
-
-/* Form element styling */
 form {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
-/* Label styles */
 form label {
     text-align: left;
     font-size: 14px;
-    color: #ccc; /* Light grey for text */
+    color: #ccc; 
     font-weight: bold;
 }
-
-/* Input field styles */
 form input {
     padding: 12px;
     font-size: 14px;
-    border: 1px solid #555; /* Darker border */
+    border: 1px solid #555; 
     border-radius: 4px;
     width: 100%;
     box-sizing: border-box;
-    background-color: #333; /* Dark input field */
-    color: white; /* White text */
+    background-color: #333;
+    color: white;
 }
-
-/* Focused input field styles */
 form input:focus {
     outline: none;
-    border-color: #e50914; /* Netflix Red border on focus */
+    border-color: #e50914;
 }
-
-/* Button styling */
 .login-button {
-    background-color: #e50914; /* Netflix Red */
+    background-color: #e50914;
     color: white;
     padding: 12px;
     font-size: 16px;
@@ -63,25 +50,19 @@ form input:focus {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
-/* Button hover effect */
 .login-button:hover {
-    background-color: #b4070c; /* Darker red for hover effect */
+    background-color: #b4070c; 
 }
-
-/* Link styling */
 .switch-link {
     margin-top: 10px;
     font-size: 14px;
-    color: #ccc; /* Light grey text */
+    color: #ccc; 
 }
 
 .switch-link a {
-    color: #007bff; /* Blue link color */
+    color: #007bff;
     text-decoration: none;
 }
-
-/* Link hover effect */
 .switch-link a:hover {
     text-decoration: underline;
 }

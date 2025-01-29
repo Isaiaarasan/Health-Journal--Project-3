@@ -1,0 +1,140 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+}
+header {
+    background-color: #ffffff;
+    border-bottom: 2px solid #0070c9;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 26px;
+    color: #003366;  
+    font-weight: bold;
+    margin: 0;
+}
+
+header nav a {
+    color: #0070c9;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+header nav a:hover {
+    color: #004085;
+    text-decoration: underline;
+}
+.hero-section {
+    background: linear-gradient(135deg, #0070c9, #004085);
+    color: #ffffff;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.hero-section h2 {
+    font-size: 38px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #ffeb3b;
+}
+
+.hero-section p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+    opacity: 0.9;
+    color: #f0f0f0; 
+}
+
+.hero-section .cta-btn {
+    background-color: #ffffff;
+    color: #0070c9;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.hero-section .cta-btn:hover {
+    background-color: #f0f0f0;
+    color: #004085;
+}
+.features-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 50px 20px;
+    background-color: #ffffff;
+}
+
+.feature {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    width: 28%;
+    margin: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.feature h3 {
+    font-size: 22px;
+    color: #003366; 
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+@media (max-width: 1024px) {
+    .feature {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section h2 {
+        font-size: 30px;
+    }
+
+    .hero-section p {
+        font-size: 16px;
+    }
+
+    .features-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        width: 80%;
+    }
+}

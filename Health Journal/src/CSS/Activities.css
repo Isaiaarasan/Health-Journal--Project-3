@@ -1,9 +1,8 @@
-/* Netflix Themed Activities Page */
 .activities-container {
     max-width: 1200px;
     margin: 50px auto;
     padding: 30px;
-    background-color: #141414; /* Dark background similar to Netflix */
+    background-color: #141414; 
     border-radius: 8px;
     color: white;
   }
@@ -12,9 +11,8 @@
     text-align: center;
     font-size: 30px;
     margin-bottom: 30px;
-    color: #e50914; /* Netflix Red */
+    color: #e50914; 
   }
-  
   .activity-list {
     display: flex;
     flex-direction: column;
@@ -38,7 +36,7 @@
   .activity-date {
     font-size: 18px;
     font-weight: bold;
-    color: #e50914; /* Netflix Red */
+    color: #e50914; 
   }
   
   .activity-description {
