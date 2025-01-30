@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../CSS/signup.css';
+import config from '../config';
 
 const Signup = () => {
     const [email, setEmail] = useState('');
@@ -27,12 +28,10 @@ const Signup = () => {
                 navigate('/login');
             } else {
                 setError(data.message || 'Signup failed');
-                setPassword('');
             }
         } catch (err) {
+            setError('Network error occurred');
             console.error('Signup error:', err);
-            setError('Network error occurred. Please try again.');
-            setPassword('');
         }
     };
 
