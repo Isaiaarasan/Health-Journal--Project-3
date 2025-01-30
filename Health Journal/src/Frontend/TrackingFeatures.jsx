@@ -69,7 +69,7 @@ const TrackingFeatures = () => {
         ))}
       </div>
 
-
+      {/* Go to Dashboard Button */}
       <Link to="/dashboard">
         <button className="go-to-dashboard-btn">Go to Dashboard</button>
       </Link>

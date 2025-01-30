@@ -9,8 +9,10 @@ const SymptomTracker = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // In a real app, save the symptom data to a database or state
     console.log("Symptom Submitted", { symptom, severity, date, notes });
     alert("Symptom recorded successfully!");
+    // Clear input fields after submission
     setSymptom("");
     setSeverity("Mild");
     setDate("");
@@ -69,9 +71,7 @@ const SymptomTracker = () => {
 
         <button type="submit" className="submit-btn">Submit</button>
       </form>
-      
     </div>
-    
   );
 };
 

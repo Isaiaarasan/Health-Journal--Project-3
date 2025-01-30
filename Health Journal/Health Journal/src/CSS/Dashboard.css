@@ -1,0 +1,132 @@
+.dashboard-container {
+  padding: 2rem;
+  background-color: var(--sd-background);
+  color: var(--sd-text);
+  font-family: 'Arial', sans-serif;
+}
+
+.profile-logo {
+  position: fixed;
+  top: 1.25rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--sd-primary);
+  color: var(--sd-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.profile-details {
+  position: absolute;
+  top: 4rem;
+  right: 1.25rem;
+  width: 280px;
+  background-color: var(--sd-white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-header h3 {
+  margin: 0;
+  color: #fff;
+}
+
+.close-btn {
+  background-color: transparent;
+  border: none;
+  color: #004085;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.profile-info {
+  margin-top: 10px;
+  color: #ccc;
+}
+
+.profile-info .profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-info button {
+  background-color: #004085;
+  color: white;
+  border: none;
+  padding: 8px;
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.profile-info button:hover {
+  background-color: #004085;
+}
+.theory-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.theory-section h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: var(--);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+
+.card-link {
+  color: var(--sd-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.logout-btn {
+  position: fixed;
+  top: 1rem;
+  right: 4.25rem;
+  background-color: var(--sd-primary);
+  color: var(--sd-white);
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 101;
+}
