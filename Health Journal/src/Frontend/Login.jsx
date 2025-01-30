@@ -28,10 +28,12 @@ const Login = () => {
                 localStorage.setItem('userId', data.userId);
                 navigate('/dashboard');
             } else {
-                setError(data.message || 'Login failed');
+                setError(data.message);
+                // Clear password field on error
+                setPassword('');
             }
         } catch (err) {
-            setError('Network error occurred');
+            setError('Network error occurred. Please try again.');
             console.error('Login error:', err);
         }
     };
@@ -39,7 +41,18 @@ const Login = () => {
     return (
         <div className="form-container">
             <h2 style={{color:'blue'}}>Login</h2>
-            {error && <div className="error-message">{error}</div>}
+            {error && (
+                <div className="error-message" style={{
+                    color: '#dc3545',
+                    backgroundColor: '#f8d7da',
+                    padding: '10px',
+                    borderRadius: '4px',
+                    marginBottom: '15px',
+                    textAlign: 'center'
+                }}>
+                    {error}
+                </div>
+            )}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="login-email">Email:</label>
                 <input 
