@@ -8,7 +8,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-    origin: 'https://health-journal-project-3-api.vercel.app', 
+    origin: '', 
     credentials: true
 }));
 app.use(express.json());
