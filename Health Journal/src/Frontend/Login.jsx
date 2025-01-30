@@ -29,7 +29,6 @@ const Login = () => {
                 navigate('/dashboard');
             } else {
                 setError(data.message);
-                // Clear password field on error
                 setPassword('');
             }
         } catch (err) {
