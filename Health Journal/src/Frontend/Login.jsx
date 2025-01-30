@@ -13,7 +13,7 @@ const Login = () => {
         setError('');
         
         try {
-            const response = await fetch('health-journal-project-3-5utpglpc3.vercel.app/api/login', {
+            const response = await fetch('https://health-journal-project-3-api.vercel.app/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
