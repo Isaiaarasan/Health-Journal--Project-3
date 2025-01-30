@@ -2,17 +2,19 @@
   max-width: 600px;
   margin: 50px auto;
   padding: 30px;
-  background-color: #141414;
+  background-color: #1e1e1e;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
-  color: white;
+  color: #fff;
 }
+
 .profile-container h2 {
   text-align: center;
   font-size: 28px;
   margin-bottom: 20px;
-  color: #e50914;
+  color: #007bff;
 }
+
 .form-group {
   margin-bottom: 20px;
 }
@@ -20,36 +22,38 @@
 .form-group label {
   font-size: 16px;
   font-weight: bold;
-  color: #b3b3b3;
+  color: #ccc;
 }
 
 .form-group input {
   width: 100%;
   padding: 12px;
   font-size: 16px;
-  border: 1px solid #333;
+  border: 1px solid #444;
   border-radius: 5px;
-  background-color: #333;
-  color: white;
+  background-color: #444;
+  color: #fff;
 }
 
 .form-group input:focus {
   outline: none;
-  border-color: #e50914;
+  border-color: #007bff;
 }
+
 .profile-preview {
   width: 100px;
   height: 100px;
   margin-top: 10px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #e50914;
+  border: 2px solid #007bff;
 }
+
 .submit-btn {
   width: 100%;
   padding: 12px;
-  background-color: #e50914;
-  color: white;
+  background-color: #007bff;
+  color: #fff;
   border: none;
   border-radius: 5px;
   font-size: 18px;
@@ -57,20 +61,20 @@
 }
 
 .submit-btn:hover {
-  background-color: #c40807;
+  background-color: #0056b3;
 }
 
 .submit-btn:disabled {
-  background-color: #555;
+  background-color: #666;
   cursor: not-allowed;
 }
+
 .notification {
   background-color: #4caf50;
   color: white;
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 4px;
-  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,7 +86,6 @@
   color: #4caf50;
   border: none;
   padding: 5px 15px;
-  font-size: 14px;
   cursor: pointer;
   border-radius: 4px;
 }

@@ -1,21 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import '../CSS/signup.css';
+
 const Signup = () => {
-    const handleSubmit = (event) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        window.location.href = "/login";
+        setError('');
+
+        try {
+            const response = await fetch('http://localhost:5001/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                navigate('/login');
+            } else {
+                setError(data.message || 'Signup failed');
+            }
+        } catch (err) {
+            setError('Network error occurred');
+            console.error('Signup error:', err);
+        }
     };
 
     return (
         <div className="form-container">
-            <h2>Signup</h2>
+            <h2 style={{color:'blue'}}>Signup</h2>
+            {error && <div className="error-message">{error}</div>}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="signup-email">Email:</label>
-                <input type="email" id="signup-email" name="signup-email" required />
+                <input 
+                    type="email" 
+                    id="signup-email" 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required 
+                />
 
                 <label htmlFor="signup-password">Password:</label>
-                <input type="password" id="signup-password" name="signup-password" required />
+                <input 
+                    type="password" 
+                    id="signup-password" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required 
+                />
 
                 <button type="submit" className="signup-button">Signup</button>
             </form>

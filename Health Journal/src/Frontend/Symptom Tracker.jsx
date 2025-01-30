@@ -69,7 +69,9 @@ const SymptomTracker = () => {
 
         <button type="submit" className="submit-btn">Submit</button>
       </form>
+      
     </div>
+    
   );
 };
 

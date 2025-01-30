@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 const LogoutAndSettings = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    navigate('/login'); 
+    navigate('/'); 
   };
 
   return (

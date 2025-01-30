@@ -1,47 +1,47 @@
 .activities-container {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #141414; 
-    border-radius: 8px;
-    color: white;
-  }
-  
-  .activities-container h2 {
-    text-align: center;
-    font-size: 30px;
-    margin-bottom: 30px;
-    color: #e50914; 
-  }
-  .activity-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .activity-card {
-    background-color: #333;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-    color: white;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .activity-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.9);
-  }
-  
-  .activity-date {
-    font-size: 18px;
-    font-weight: bold;
-    color: #e50914; 
-  }
-  
-  .activity-description {
-    font-size: 16px;
-    color: #ccc;
-    margin-top: 10px;
-  }
-  
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  color: white;
+}
+
+.activities-container h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #00bcd4;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.activity-card {
+  background-color: #333333;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.activity-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+  background-color: #444444;
+}
+
+.activity-date {
+  font-size: 18px;
+  font-weight: bold;
+  color: #00bcd4;
+}
+
+.activity-description {
+  font-size: 16px;
+  color: #b0bec5;
+  margin-top: 10px;
+}
