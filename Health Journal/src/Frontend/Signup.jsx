@@ -13,7 +13,7 @@ const Signup = () => {
         setError('');
 
         try {
-            const response = await fetch('/api/signup', {
+            const response = await fetch('https://health-journal-project-3-api.vercel.app/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -27,10 +27,12 @@ const Signup = () => {
                 navigate('/login');
             } else {
                 setError(data.message || 'Signup failed');
+                setPassword('');
             }
         } catch (err) {
-            setError('Network error occurred');
             console.error('Signup error:', err);
+            setError('Network error occurred. Please try again.');
+            setPassword('');
         }
     };
 
