@@ -1,41 +1,39 @@
-/* Netflix Themed Symptom Tracker Page */
 .symptom-tracker-container {
   max-width: 800px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #141414; /* Dark background similar to Netflix */
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--sd-white);
   border-radius: 8px;
-  color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .symptom-tracker-container h2 {
   text-align: center;
   font-size: 30px;
   margin-bottom: 30px;
-  color: #e50914; /* Netflix Red */
+  color: #007bff;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 label {
   display: block;
-  font-size: 18px;
-  color: #ccc;
-  margin-bottom: 10px;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 input,
 select,
 textarea {
   width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  background-color: #333;
-  border: 1px solid #555;
-  border-radius: 5px;
-  color: white;
+  padding: 0.8rem;
+  border: 1px solid #555; 
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
 textarea {
@@ -46,24 +44,25 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #e50914; /* Netflix Red on focus */
+  border-color: #007bff;
 }
 
 .submit-btn {
-  background-color: #e50914;
-  color: white;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
   border: none;
-  padding: 12px 20px;
-  font-size: 18px;
-  border-radius: 5px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .submit-btn:hover {
-  background-color: #b4070c; /* Darker red for hover effect */
+  background-color: #0056b3;
 }
 
 .submit-btn:active {
-  background-color: #8e0305; /* Even darker red for active state */
+  background-color: #003f7f;
 }

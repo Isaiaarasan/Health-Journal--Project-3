@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // useNavigate instead of useHistory
+import { useNavigate } from "react-router-dom";
 import "../CSS/ProfileSettings.css";
-
 const ProfileEdit = () => {
-  const navigate = useNavigate(); // Hook for programmatic navigation
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -11,73 +10,48 @@ const ProfileEdit = () => {
     address: "",
     profilePic: null,
   });
-
-  const [notification, setNotification] = useState(""); // To manage success notification
-  const [isSubmitting, setIsSubmitting] = useState(false); // To disable submit during submission
-
+  const [preview, setPreview] = useState(null); 
+  const [notification, setNotification] = useState(""); 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "profilePic") {
-      setFormData({
-        ...formData,
-        profilePic: files[0],
-      });
+      const file = files[0];
+      if (file) {
+        setFormData({ ...formData, profilePic: file });
+        setPreview(URL.createObjectURL(file)); 
+      }
     } else {
-      setFormData({
-        ...formData,
-        [name]: value,
-      });
+      setFormData({ ...formData, [name]: value });
     }
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitting(true); // Start submitting
-
-    // Simulate form submission (you can replace this with actual form submission logic)
+    if (!formData.name || !formData.email || !formData.password || !formData.address) {
+      alert("All fields are required.");
+      return;
+    }
+    setIsSubmitting(true);
     setTimeout(() => {
-      // Profile update logic goes here
-
-      // Show success notification
       setNotification("Profile Updated Successfully!");
-
-      // Clear the form data
-      setFormData({
-        name: "",
-        email: "",
-        password: "",
-        address: "",
-        profilePic: null,
-      });
-
-      // Disable submitting button
       setIsSubmitting(false);
-
-      // After 2 seconds, redirect to dashboard and hide the notification
       setTimeout(() => {
-        setNotification(""); // Hide the notification
-        navigate("/dashboard"); // Redirect to dashboard
+        setNotification(""); 
+        navigate("/dashboard"); 
       }, 2000);
-    }, 1000); // Simulate a network request with a delay
+    }, 1000);
   };
-
   return (
     <div className="profile-container">
       <h2>Edit Profile</h2>
-
-      {/* Success notification */}
       {notification && (
         <div className="notification">
           {notification}
-          <button
-            className="ok-button"
-            onClick={() => navigate("/dashboard")}
-          >
+          <button className="ok-button" onClick={() => setNotification("")}>
             OK
           </button>
         </div>
       )}
-
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Full Name</label>
@@ -90,7 +64,6 @@ const ProfileEdit = () => {
             onChange={handleChange}
           />
         </div>
-
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -133,20 +106,17 @@ const ProfileEdit = () => {
             type="file"
             id="profilePic"
             name="profilePic"
+            accept="image/*"
             onChange={handleChange}
           />
+          {preview && <img src={preview} alt="Preview" className="profile-preview" />}
         </div>
 
-        <button
-          type="submit"
-          className="submit-btn"
-          disabled={isSubmitting} // Disable submit button during submission
-        >
+        <button type="submit" className="submit-btn" disabled={isSubmitting}>
           {isSubmitting ? "Updating..." : "Save Changes"}
         </button>
       </form>
     </div>
   );
 };
-
 export default ProfileEdit;

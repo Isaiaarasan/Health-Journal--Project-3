@@ -2,7 +2,6 @@ import React from "react";
 import "../CSS/Activities.css";
 
 const Activities = () => {
-  // Sample activities data
   const activities = [
     { date: "2025-01-24", description: "Uploaded a new symptom entry for headache." },
     { date: "2025-01-23", description: "Updated profile picture." },

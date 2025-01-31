@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Bar, Pie } from "react-chartjs-2";
-import "../CSS/ReportsAndCharts.css"; // Import chart components
+import "../CSS/ReportsAndCharts.css"; 
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from "chart.js";
-
-// Register necessary Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -40,8 +38,6 @@ const ReportsAndCharts = () => {
   });
 
   useEffect(() => {
-    // Fetch chart data if needed from API or local storage
-    // For example: setChartData(fetchedData);
   }, []);
 
   return (

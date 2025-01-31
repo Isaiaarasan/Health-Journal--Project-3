@@ -8,21 +8,11 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-<<<<<<< HEAD
-    origin: [
-        "https://health-journal-project-3.vercel.app",
-        "https://health-journal-project-3-fhzbwhnwh.vercel.app"
-    ],
-    methods: ['GET', 'POST', 'OPTIONS'],
+    origin: 'http://localhost:5174',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
-=======
-    origin: ["https://health-journal-project-3.vercel.app/"], 
-     methods: ['GET', 'POST'], 
-    credentials: true
->>>>>>> 74be63ee602c85804a49ac514924677602be4c16
 }));
-
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://arasan:17652000@health-journal.xxwey.mongodb.net/healthjournal', {
@@ -38,7 +28,7 @@ app.get('/', (req, res) => {
 app.post('/api/signup', async (req, res) => {
     try {
         const { email, password } = req.body;
-        
+
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(400).json({ message: 'User already exists' });
@@ -55,22 +45,31 @@ app.post('/api/signup', async (req, res) => {
 
 app.post('/api/login', async (req, res) => {
     try {
+        console.log('Login attempt:', req.body);
         const { email, password } = req.body;
-        
+
         const user = await User.findOne({ email });
+        console.log('User found:', user ? 'Yes' : 'No');
+        
         if (!user) {
+            console.log('Login failed: User not found');
             return res.status(401).json({ message: 'Invalid email address' });
         }
 
         const isMatch = await user.comparePassword(password);
+        console.log('Password match:', isMatch ? 'Yes' : 'No');
+        
         if (!isMatch) {
+            console.log('Login failed: Invalid password');
             return res.status(401).json({ message: 'Invalid password' });
         }
 
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET || 'your_jwt_secret', { expiresIn: '1h' });
+        console.log('Login successful, token generated');
 
         res.json({ token, userId: user._id });
     } catch (error) {
+        console.error('Login error:', error);
         res.status(500).json({ message: 'Login failed. Please try again.' });
     }
 });

@@ -4,26 +4,45 @@ import Dashboard from "./Frontend/Dashboard";
 import Login from "./Frontend/Login";
 import Signup from "./Frontend/Signup";
 import ProfileSettings from "./Frontend/Profile Settings";
-import MedicalHistory from "./Frontend/Medical History"; // Assuming this component exists
-import SymptomTracker from "./Frontend/Symptom Tracker"; // Assuming this component exists
+import MedicalHistory from "./Frontend/Medical History";
+import SymptomTracker from "./Frontend/Symptom Tracker"; 
 import ReportsCharts from "./Frontend/Reports & Charts"; 
 import Activities from "./Frontend/Activities";
 import TrackingFeatures from "./Frontend/TrackingFeatures";
+import MedicationAndReminders from "./Frontend/MedicationAndReminders";
+import LogoutAndSettings from "./Frontend/LogoutAndSettings";
+import Charts from "./Frontend/Charts";
+import ManageMedications from "./Frontend/ManageMedications";
+import Landing from "./Frontend/Landing";
+import Home from "./Frontend/Home";
+import About from "./Frontend/About";
+import Publish from "./Frontend/Publish";
+import LatestArticles from "./Frontend/LatestArticles";
+import Submissions from "./Frontend/Submissions";
+
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} /> {/* Login page */}
-        <Route path="/login" element={<Login />} /> {/* Login page */}
-        <Route path="/signup" element={<Signup />} /> {/* Signup page */}
-        <Route path="/dashboard" element={<Dashboard />} /> {/* Dashboard */}
-        <Route path="/profile-settings" element={<ProfileSettings />} /> {/* Profile Settings */}
-        <Route path="/medical-history" element={<MedicalHistory />} /> {/* Medical History */}
-        <Route path="/symptom-tracker" element={<SymptomTracker />} /> {/* Symptom Tracker */}
-        <Route path="/reports-charts" element={<ReportsCharts />} /> {/* Reports & Charts */}
-        <Route path="/recent-activities" element={<Activities />} /> {/* Reports & Charts */}
-        <Route path="/tracking-features" element={<TrackingFeatures />} /> {/* Symptom Tracker route */}
-
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} /> 
+        <Route path="/dashboard" element={<Dashboard />} /> 
+        <Route path="/profile-settings" element={<ProfileSettings />} /> 
+        <Route path="/medical-history" element={<MedicalHistory />} /> 
+        <Route path="/symptom-tracker" element={<SymptomTracker />} /> 
+        <Route path="/reports-charts" element={<ReportsCharts />} />
+        <Route path="/recent-activities" element={<Activities />} />
+        <Route path="/tracking-features" element={<TrackingFeatures />} /> 
+        <Route path="/medication-reminders" element={<MedicationAndReminders />} />
+        <Route path="/logout-settings" element={<LogoutAndSettings />} /> 
+        <Route path="/charts" element={<Charts />} />
+        <Route path="/manage-medications" element={<ManageMedications/>}/> 
+        <Route path="/" element={<Landing />} /> 
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/publish" element={<Publish />} />
+        <Route path="/articles" element={<LatestArticles />} />
+        <Route path="/submissions" element={<Submissions />} />
       </Routes>
     </Router>
   );
