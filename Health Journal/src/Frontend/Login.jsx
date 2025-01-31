@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../CSS/Login.css';
+import '../CSS/signup.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -11,9 +11,10 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setError('');
-        
+
         try {
-            const response = await fetch('https://health-journal-project-3-api.vercel.app/login', {
+            const response = await fetch('http://localhost:5001/api/login',
+                    {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -28,7 +29,7 @@ const Login = () => {
                 localStorage.setItem('userId', data.userId);
                 navigate('/dashboard');
             } else {
-                setError(data.message);
+                setError(data.message || 'Invalid login credentials');
                 setPassword('');
             }
         } catch (err) {
@@ -39,7 +40,7 @@ const Login = () => {
 
     return (
         <div className="form-container">
-            <h2 style={{color:'blue'}}>Login</h2>
+            <h2 style={{ color: 'blue' }}>Login</h2>
             {error && (
                 <div className="error-message" style={{
                     color: '#dc3545',
@@ -74,7 +75,7 @@ const Login = () => {
                 <button type="submit" className="login-button">Login</button>
             </form>
             <p className="switch-link">
-                Don&apos;t have an account? <Link to="/Signup">Signup</Link>
+                Don&apos;t have an account? <Link to="/signup">Signup</Link>
             </p>
         </div>
     );
