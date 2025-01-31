@@ -37,7 +37,7 @@ app.post('/api/signup', async (req, res) => {
 
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({ message: 'User already exists' });
+             res.status(400).json({ message: 'User already exists' });
         }
 
         const user = new User({ email, password });
@@ -56,12 +56,12 @@ app.post('/api/login', async (req, res) => {
 
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: 'Invalid email or password' });
+             res.status(400).json({ message: 'Invalid email or password' });
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ message: 'Invalid email or password' });
+             res.status(400).json({ message: 'Invalid email or password' });
         }
 
         const token = jwt.sign({ userId: user._id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '1h' });
