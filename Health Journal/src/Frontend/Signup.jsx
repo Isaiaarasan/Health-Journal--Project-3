@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../CSS/signup.css'; 
+import '../CSS/signup.css';  // Importing the external CSS file
+
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -27,7 +28,7 @@ const Signup = () => {
             if (response.ok) {
                 setSuccess('Signup successful! Redirecting to login...');
                 setTimeout(() => {
-                    navigate('/login'); 
+                    navigate('/login'); // Redirect to login page
                 }, 2000);
             } else {
                 setError(data.message || 'Signup failed. Please try again.');
