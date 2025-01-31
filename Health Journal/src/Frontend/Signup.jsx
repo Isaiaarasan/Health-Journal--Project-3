@@ -15,7 +15,7 @@ const Signup = () => {
         setSuccess('');
 
         try {
-            const response = await fetch('https://health-journal-project-3.onrender.com/api/signup', { 
+            const response = await fetch('https://health-journal-project-3-1.onrender.com/api/signup', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
