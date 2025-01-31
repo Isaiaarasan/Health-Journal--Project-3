@@ -13,7 +13,7 @@ const Login = () => {
         setError('');
 
         try {
-            const response = await fetch('http://localhost:5001/api/login',
+            const response = await fetch('https://health-journal-project-3.onrender.com/api/login',
                     {
                 method: 'POST',
                 headers: {
