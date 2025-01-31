@@ -8,6 +8,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
+<<<<<<< HEAD
     origin: [
         "https://health-journal-project-3.vercel.app",
         "https://health-journal-project-3-fhzbwhnwh.vercel.app"
@@ -15,6 +16,11 @@ app.use(cors({
     methods: ['GET', 'POST', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization']
+=======
+    origin: ["https://health-journal-project-3.vercel.app/"], 
+     methods: ['GET', 'POST'], 
+    credentials: true
+>>>>>>> 74be63ee602c85804a49ac514924677602be4c16
 }));
 
 app.use(express.json());

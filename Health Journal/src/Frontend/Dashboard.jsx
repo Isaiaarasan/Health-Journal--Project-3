@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; 
 import "../CSS/Dashboard.css";
-import TrackingFeatures from "./TrackingFeatures"; // Import the TrackingFeatures component
+import TrackingFeatures from "./TrackingFeatures"; 
 
 const Dashboard = () => {
   const [isProfileVisible, setIsProfileVisible] = useState(false);
@@ -14,7 +14,6 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <h2>Welcome to Your Dashboard</h2>
 
-      {/* Profile Icon Placeholder */}
       <div className="profile-logo" onClick={handleProfileClick}>
         {/* No image, just an empty div */}
       </div>
