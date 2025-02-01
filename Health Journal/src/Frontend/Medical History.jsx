@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../CSS/MedicalHistory.css";
+import axios from "axios";
+import "../CSS/MedicalHistory.css"; // Separate CSS for this component
+
 const MedicalHistory = () => {
   const [history, setHistory] = useState([]);
   const [formData, setFormData] = useState({
@@ -8,24 +10,46 @@ const MedicalHistory = () => {
     medications: "",
     doctor: "",
   });
+
+  // Fetch medical history records from the backend
   useEffect(() => {
-    const storedHistory = JSON.parse(localStorage.getItem("medicalHistory")) || [];
-    setHistory(storedHistory);
+    const fetchHistory = async () => {
+      try {
+        console.log("Fetching medical history from:", process.env.REACT_APP_API_URL);  // Check the API URL
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/medical-history`);
+        setHistory(response.data); // Set medical history records from the backend
+      } catch (error) {
+        console.error("Error fetching medical history:", error);
+      }
+    };
+    fetchHistory();
   }, []);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedHistory = [...history, formData];
-    setHistory(updatedHistory);
-    localStorage.setItem("medicalHistory", JSON.stringify(updatedHistory)); // Save to Local Storage
-    setFormData({ date: "", diagnosis: "", medications: "", doctor: "" }); // Reset form
-  };
-  const handleDelete = (index) => {
-    const updatedHistory = history.filter((_, i) => i !== index);
-    setHistory(updatedHistory);
-    localStorage.setItem("medicalHistory", JSON.stringify(updatedHistory)); // Update Local Storage
+
+    // Log formData before sending to ensure data is captured correctly
+    console.log("Submitting the following data:", formData);
+
+    try {
+      const { date, diagnosis, medications, doctor } = formData;
+      const newRecord = { date, diagnosis, medications, doctor };
+
+      // Check if API URL is valid
+      console.log("Posting to:", `${process.env.REACT_APP_API_URL}/medical-history`);
+
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/medical-history`, newRecord);
+      console.log("Server Response:", response); // Log the response from the backend
+
+      setHistory([...history, newRecord]); // Update local state with new record
+      setFormData({ date: "", diagnosis: "", medications: "", doctor: "" });
+    } catch (error) {
+      console.error("Error submitting new medical history:", error);
+    }
   };
 
   return (
@@ -65,6 +89,7 @@ const MedicalHistory = () => {
         />
         <button type="submit">Add Record</button>
       </form>
+
       <h3>History Records</h3>
       {history.length === 0 ? (
         <p>No medical history recorded.</p>
@@ -73,11 +98,10 @@ const MedicalHistory = () => {
           {history.map((record, index) => (
             <div key={index} className="card">
               <div className="card-info">
-                <h4>{record.date}</h4>
+                <h4>{new Date(record.date).toLocaleDateString()}</h4>
                 <p><strong>Diagnosis:</strong> {record.diagnosis}</p>
                 <p><strong>Medications:</strong> {record.medications}</p>
                 <p><strong>Doctor:</strong> {record.doctor}</p>
-                <button onClick={() => handleDelete(index)}>Delete</button>
               </div>
             </div>
           ))}
@@ -86,4 +110,5 @@ const MedicalHistory = () => {
     </div>
   );
 };
+
 export default MedicalHistory;

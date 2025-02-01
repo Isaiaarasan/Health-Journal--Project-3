@@ -1,29 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../CSS/Activities.css";
 
-const Activities = () => {
-  const activities = [
-    { date: "2025-01-24", description: "Uploaded a new symptom entry for headache." },
-    { date: "2025-01-23", description: "Updated profile picture." },
-    { date: "2025-01-22", description: "Added new medical history entry." },
-    { date: "2025-01-21", description: "Logged a new health symptom." },
-    { date: "2025-01-20", description: "Profile updated successfully." }
-  ];
+const SymptomList = () => {
+  const [symptoms, setSymptoms] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchSymptoms = async () => {
+      try {
+        const response = await fetch("http://localhost:5001/api/symptoms");
+        if (!response.ok) {
+          throw new Error(`HTTP Error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setSymptoms(data);
+      } catch (error) {
+        console.error("Error fetching symptoms:", error);
+        setError("Failed to fetch symptoms. Please try again.");
+      }
+    };
+
+    fetchSymptoms();
+  }, []);
 
   return (
-    <div className="activities-container">
-      <h2>Recent Activities</h2>
-      
-      <div className="activity-list">
-        {activities.map((activity, index) => (
-          <div key={index} className="activity-card">
-            <div className="activity-date">{activity.date}</div>
-            <div className="activity-description">{activity.description}</div>
-          </div>
+    <div className="symptom-container">
+      <h2>Symptoms List</h2>
+      {error && <p style={{ color: "red" }}>{error}</p>}
+      <ul className="symptom-list">
+        {symptoms.map((symptom, index) => (
+          <li key={index} className="symptom-card">
+            <p className="symptom-name">
+              <strong>Symptom:</strong> {symptom.symptom}
+            </p>
+            <p className="symptom-severity">
+              <strong>Severity:</strong> {symptom.severity}
+            </p>
+            <p className="symptom-date">
+              <strong>Date:</strong> {new Date(symptom.date).toLocaleDateString()}
+            </p>
+            {symptom.notes && ( // Display notes if available
+              <p className="symptom-notes">
+                <strong>Notes:</strong> {symptom.notes}
+              </p>
+            )}
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
 
-export default Activities;
+export default SymptomList;

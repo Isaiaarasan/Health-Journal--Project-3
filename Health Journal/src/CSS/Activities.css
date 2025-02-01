@@ -1,47 +1,61 @@
-.activities-container {
-  max-width: 1200px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  color: white;
+/* Symptom List Styles */
+.symptom-list-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--sd-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.activities-container h2 {
+.symptom-list-container h2 {
   text-align: center;
-  font-size: 32px;
+  font-size: 30px;
   margin-bottom: 30px;
-  color: #00bcd4;
+  color: #007bff;
 }
 
-.activity-list {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
+.symptom-list {
+  list-style: none;
+  padding: 0;
 }
 
-.activity-card {
-  background-color: #333333;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(255, 255, 255, 0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+.symptom-card {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.activity-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
-  background-color: #444444;
+.symptom-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-.activity-date {
-  font-size: 18px;
-  font-weight: bold;
-  color: #00bcd4;
+.symptom-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
 }
 
-.activity-description {
-  font-size: 16px;
-  color: #b0bec5;
-  margin-top: 10px;
+.symptom-severity {
+  font-size: 1rem;
+  color: #d32f2f;
+  font-weight: 500;
+}
+
+.symptom-date {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.symptom-notes {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 0.8rem;
+  font-style: italic;
+  line-height: 1.4;
 }
