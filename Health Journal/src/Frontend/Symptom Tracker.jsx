@@ -19,7 +19,7 @@ const SymptomTracker = () => {
     try {
       const newSymptom = { ...formData };
       // Post the symptom data to the backend
-      await axios.post(`${process.env.REACT_APP_API_URL}/symptoms`, newSymptom);
+      await axios.post(`https://health-journal-project-3-1.onrender.com/api/symptoms`, newSymptom);
       setFormData({ symptom: "", severity: "", date: "", notes: "" });
     } catch (error) {
       console.error("Error submitting new symptom:", error);
