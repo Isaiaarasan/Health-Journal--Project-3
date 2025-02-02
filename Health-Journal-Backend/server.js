@@ -171,7 +171,7 @@ app.get("/api/symptoms", async (req, res) => {
     res.status(500).json({ message: "Failed to fetch symptoms", error: error.message });
   }
 });
-
+// Medical History Schema
 const MedicalHistorySchema = new mongoose.Schema({
   date: { type: Date, required: true },
   diagnosis: { type: String, required: true },
@@ -196,6 +196,7 @@ app.post("/medical-history", async (req, res) => {
     res.status(500).json({ message: "Failed to add medical history", error: error.message });
   }
 });
+
 
 // Start Server
 const PORT = process.env.PORT || 5001;
