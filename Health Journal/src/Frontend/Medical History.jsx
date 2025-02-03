@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../CSS/MedicalHistory.css";
 
 // Use `import.meta.env` for Vite and fallback for CRA
-const API_URL = import.meta.env.VITE_API_URL || "http://mongodb+srv://arasan:17652000@health-journal.xxwey.mongodb.net/healthjournal";
+const API_URL = import.meta.env.VITE_API_URL || "mongodb+srv://arasan:17652000@health-journal.xxwey.mongodb.net/healthjournal";
 
 const MedicalHistory = () => {
     const [history, setHistory] = useState([]);
