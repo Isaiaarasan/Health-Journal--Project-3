@@ -64,13 +64,13 @@ app.post('/api/login', async (req, res) => {
     const { email, password } = req.body;
     try {
         // Validate JWT Secret
-        // if (!process.env.JWT_SECRET) {
-        //     console.error('JWT_SECRET is missing in environment variables');
-        //     return res.status(500).json({ 
-        //         message: 'Server configuration error', 
-        //         error: 'JWT Secret is not configured' 
-        //     });
-        // }
+        if (!process.env.JWT_SECRET) {
+            console.error('JWT_SECRET is missing in environment variables');
+            return res.status(500).json({ 
+                message: 'Server configuration error', 
+                error: 'JWT Secret is not configured' 
+            });
+        }
 
         // Find user
         const user = await User.findOne({ email });
@@ -85,15 +85,16 @@ app.post('/api/login', async (req, res) => {
         }
 
         // Generate token
-        // const token = jwt.sign(
-        //     { userId: user._id, email: user.email }, 
-        //     process.env.JWT_SECRET, 
-        //     { expiresIn: '1h' }
-        // );
+        const token = jwt.sign(
+            { userId: user._id, email: user.email }, 
+            process.env.JWT_SECRET, 
+            { expiresIn: '1h' }
+        );
 
         res.json({ 
             message: 'Login successful',  
-            userId: user._id 
+            userId: user._id,
+            token: token
         });
     } catch (error) {
         console.error('Login error:', error);
@@ -171,32 +172,46 @@ app.get("/api/symptoms", async (req, res) => {
     res.status(500).json({ message: "Failed to fetch symptoms", error: error.message });
   }
 });
+
 // Medical History Schema
-const MedicalHistorySchema = new mongoose.Schema({
-  date: { type: Date, required: true },
-  diagnosis: { type: String, required: true },
-  medications: { type: String, required: true },
-  doctor: { type: String, required: true },
+const medicalHistorySchema = new mongoose.Schema({
+    date: { type: Date, required: true },
+    diagnosis: { type: String, required: true },
+    medications: { type: String, required: true },
+    doctor: { type: String, required: true }
 });
 
-const MedicalHistory = mongoose.model("MedicalHistory", MedicalHistorySchema);
+const MedicalHistory = mongoose.model("MedicalHistory", medicalHistorySchema);
 
-app.post("/medical-history", async (req, res) => {
-  try {
-    const { date, diagnosis, medications, doctor } = req.body;
-
-    if (!date || !diagnosis || !medications || !doctor) {
-      return res.status(400).json({ message: "All fields are required" });
+// API Route: Fetch Medical History
+app.get("/api/medical-history", async (req, res) => {
+    try {
+        console.log("🔍 Fetching medical history...");
+        const history = await MedicalHistory.find();
+        res.status(200).json(history);
+    } catch (error) {
+        console.error("❌ Error fetching medical history:", error.message, error.stack);
+        res.status(500).json({ message: "Failed to fetch medical history", error: error.message });
     }
-    const newRecord = new MedicalHistory({ date, diagnosis, medications, doctor });
-    await newRecord.save();
-    res.status(201).json({ message: "Medical history added successfully", record: newRecord });
-  } catch (error) {
-    console.error("Error adding medical history:", error);
-    res.status(500).json({ message: "Failed to add medical history", error: error.message });
-  }
 });
 
+// API Route: Add New Medical Record
+app.post("/api/medical-history", async (req, res) => {
+    try {
+        const { date, diagnosis, medications, doctor } = req.body;
+        if (!date || !diagnosis || !medications || !doctor) {
+            return res.status(400).json({ message: "All fields are required" });
+        }
+
+        const newRecord = new MedicalHistory({ date, diagnosis, medications, doctor });
+        await newRecord.save();
+
+        res.status(201).json({ message: "Medical history record added", record: newRecord });
+    } catch (error) {
+        console.error("❌ Error adding medical history:", error.message, error.stack);
+        res.status(500).json({ message: "Failed to add medical history", error: error.message });
+    }
+});
 
 // Start Server
 const PORT = process.env.PORT || 5001;

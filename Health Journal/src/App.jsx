@@ -43,6 +43,7 @@ const App = () => {
         <Route path="/publish" element={<Publish />} />
         <Route path="/articles" element={<LatestArticles />} />
         <Route path="/submissions" element={<Submissions />} />
+        
       </Routes>
     </Router>
   );

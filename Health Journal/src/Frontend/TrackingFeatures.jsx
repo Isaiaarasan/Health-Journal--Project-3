@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../CSS/TrackingFeatures.css";
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+const API_URL = import.meta.env.VITE_API_URL || 'mongodb+srv://arasan:17652000@health-journal.xxwey.mongodb.net/healthjournal';
 
 const features = [
   {

@@ -47,6 +47,27 @@
   background-color: #f40612;
 }
 
+.medical-history form button[type="button"] {
+  background-color: var(--sd-secondary);
+  color: white;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.medical-history form button[type="button"]:hover {
+  background-color: var(--sd-hover);
+  transform: scale(1.05);
+}
+
+.medical-history form button[type="button"]:active {
+  transform: scale(0.95);
+}
+
 .history-item {
   background-color: var(--sd-light-gray);
   padding: 1.5rem;
