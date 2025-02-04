@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../CSS/signup.css';
 
-const API_URL = 'https://health-journal-project-3-1.onrender.com';
+const API_URL = 'https://health-journal-project-3.onrender.com';
 
 const Signup = () => {
     const [email, setEmail] = useState('');

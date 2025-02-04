@@ -69,7 +69,7 @@ npm install
 
 2. Create a `.env` file with the following variable:
 ```
-VITE_API_URL=http://localhost:5001
+VITE_API_URL=https://health-journal-project-3.onrender.com
 ```
 
 3. Start the frontend development server

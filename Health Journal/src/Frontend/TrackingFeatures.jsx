@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../CSS/TrackingFeatures.css";
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://health-journal-project-3.onrender.com';
+const API_URL = import.meta.env.VITE_API_URL || 'https://health-journal-project-3.onrender.com/api/features';
 
 const features = [
   {
