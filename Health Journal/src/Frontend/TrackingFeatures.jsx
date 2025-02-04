@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../CSS/TrackingFeatures.css";
 
-const API_URL = import.meta.env.VITE_API_URL || 'mongodb+srv://arasan:17652000@health-journal.xxwey.mongodb.net/healthjournal';
+const API_URL = import.meta.env.VITE_API_URL || 'https://health-journal-project-3.onrender.com';
 
 const features = [
   {
@@ -56,12 +56,29 @@ const features = [
 ];
 
 const TrackingFeatures = () => {
+  const navigate = useNavigate();
+
+  const handleMoveToDashboard = () => {
+    navigate('/dashboard');
+  };
+
   return (
     <section className="tracking-features py-12 bg-black text-center">
-      <h2 className="text-3xl font-bold text-white mb-10">What can Wave help you track?</h2>
-      <div className="grid-container">
+      <div className="features-header">
+        <h2 className="text-3xl font-bold text-white mb-10">What can Wave help you track?</h2>
+        <button 
+          className="move-to-dashboard-btn" 
+          onClick={handleMoveToDashboard}
+        >
+          Move to Dashboard
+        </button>
+      </div>
+      <div className="grid-container features-grid">
         {features.map((feature, index) => (
-          <div key={index} className="feature-card flex flex-col items-center bg-gray-900 shadow-xl rounded-lg p-6 border">
+          <div 
+            key={index} 
+            className={`feature-card flex flex-col items-center bg-gray-900 shadow-xl rounded-lg p-6 border ${feature.color}`}
+          >
             <div className={`w-16 h-16 flex items-center justify-center rounded-full border-4 ${feature.color} text-2xl font-bold`}>
               {feature.icon}
             </div>
@@ -70,11 +87,6 @@ const TrackingFeatures = () => {
           </div>
         ))}
       </div>
-
-
-      <Link to="/dashboard">
-        <button className="go-to-dashboard-btn">Go to Dashboard</button>
-      </Link>
     </section>
   );
 };

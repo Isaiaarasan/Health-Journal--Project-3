@@ -1,14 +1,58 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; 
+import React, { useState, useEffect } from "react";
+import axios from 'axios';
+import { Link, useNavigate } from "react-router-dom"; 
 import "../CSS/Dashboard.css";
 import LogoutAndSettings from "../Frontend/LogoutAndSettings"; 
 
+const API_URL = 'https://health-journal-project-3.onrender.com';
+
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [isProfileVisible, setIsProfileVisible] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      const userId = localStorage.getItem('userId');
+      
+      if (!userId) {
+        navigate('/login');
+        return;
+      }
+
+      try {
+        setLoading(true);
+        // Fetch profile data
+        const profileResponse = await axios.get(`${API_URL}/api/profile/${userId}`);
+        setUserData(profileResponse.data);
+      } catch (err) {
+        console.error('Error fetching profile:', err);
+        
+        // If no profile exists, set minimal data
+        setUserData({
+          firstName: 'Not Set',
+          lastName: 'Not Set',
+          address: 'Not Provided'
+        });
+        
+        // Optional: redirect to profile settings
+        // navigate('/profile-settings');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserProfile();
+  }, [navigate]);
 
   const handleProfileClick = () => {
     setIsProfileVisible(!isProfileVisible);
   };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div className="error">{error}</div>;
 
   return (
     <div className="dashboard-container">
@@ -16,7 +60,7 @@ const Dashboard = () => {
       <div className="profile-logo" onClick={handleProfileClick}>
         <button style={{color:"var(--sd-primary)"}}>Profile</button>
       </div>
-      {isProfileVisible && (
+      {isProfileVisible && userData && (
         <div className="profile-details">
           <div className="profile-header">
             <h3 style={{color:"var(--sd-primary)"}}>Profile Details</h3>
@@ -25,10 +69,14 @@ const Dashboard = () => {
             </button>
           </div>
           <div className="profile-info">
-            <img src="I:\Health Journal- P3\Health Journal\src\image\arasan1.JPG" alt="Profile" className="profile-pic" />
-            <p><strong>Name:</strong> Elavarasan </p>
-            <p><strong>Email:</strong> arasan9706@gmail.com</p>
-            <p><strong>Address:</strong> Sri Eshwar College of Engineering, Coimbatore</p>
+            <img 
+              src={userData.profilePicture || "I:\\Health Journal- P3\\Health Journal\\src\\image\\arasan1.JPG"} 
+              alt="Profile" 
+              className="profile-pic" 
+            />
+            <p><strong>Name:</strong> {userData.firstName} {userData.lastName}</p>
+            <p><strong>Email:</strong> {userData.email}</p>
+            <p><strong>Address:</strong> {userData.address || 'Not provided'}</p>
             <Link to="/profile-settings">
               <button className="edit-btn">Edit Profile</button>
             </Link>

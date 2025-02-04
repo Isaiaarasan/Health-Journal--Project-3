@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../CSS/MedicalHistory.css";
-
-// Use `import.meta.env` for Vite and fallback for CRA
-const API_URL = import.meta.env.VITE_API_URL || "mongodb+srv://arasan:17652000@health-journal.xxwey.mongodb.net/healthjournal";
+const API_URL = import.meta.env.VITE_API_URL || "https://health-journal-project-3.onrender.com";
 
 const MedicalHistory = () => {
+    const navigate = useNavigate();
     const [history, setHistory] = useState([]);
     const [newEntry, setNewEntry] = useState({
         date: "",
@@ -35,13 +34,11 @@ const MedicalHistory = () => {
     };
 
     useEffect(() => {
-        // Optional: Prefetch history to improve performance
         fetchHistory();
     }, []);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Basic validation
         if (!newEntry.date || !newEntry.diagnosis || !newEntry.medications || !newEntry.doctor) {
             return alert("Please fill all the fields.");
         }
@@ -50,11 +47,8 @@ const MedicalHistory = () => {
         try {
             console.log("Submitting the following data:", newEntry);
             const response = await axios.post(`${API_URL}/api/medical-history`, newEntry);
-            // Re-fetch the history to ensure it's up to date
             fetchHistory();
             setNewEntry({ date: "", diagnosis: "", medications: "", doctor: "" });
-
-            // Show a success popup
             alert("Added successfully!");
         } catch (error) {
             console.error("Error submitting new medical history:", error);
@@ -64,11 +58,21 @@ const MedicalHistory = () => {
         }
     };
 
+    const handleMoveToDashboard = () => {
+        navigate('/dashboard');
+    };
+
     return (
         <div className="medical-history-container">
-            <h2 className="history-title">Medical History</h2>
-            
-          
+            <div className="medical-history-header">
+                <h2>Medical History</h2>
+                <button 
+                    className="move-to-dashboard-btn" 
+                    onClick={handleMoveToDashboard}
+                >
+                    Move to Dashboard
+                </button>
+            </div>
 
             {showHistory && (
                 <div className="history-section">
@@ -91,8 +95,7 @@ const MedicalHistory = () => {
                 </div>
             )}
 
-            {/* Form to Add New Medical History */}
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="medical-history-form">
                 <input
                     type="date"
                     value={newEntry.date}

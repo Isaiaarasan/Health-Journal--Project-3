@@ -1,40 +1,34 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'; 
 import '../CSS/signup.css';
+
+const API_URL = 'https://health-journal-project-3.onrender.com'; 
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null); 
+    const [loading, setLoading] = useState(false); 
     const navigate = useNavigate();
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        setError('');
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
 
         try {
-            const response = await fetch('https://health-journal-project-3.onrender.com/api/login',
-                    {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
+            const response = await axios.post(`${API_URL}/api/login`, {
+                email,
+                password
             });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('userId', data.userId);
-                navigate('/dashboard');
-            } else {
-                setError(data.message || 'Invalid login credentials');
-                setPassword('');
-            }
+            localStorage.setItem('userId', response.data.userId);
+            navigate('/dashboard');
         } catch (err) {
-            setError('Network error occurred. Please try again.');
             console.error('Login error:', err);
+            setError(err.response?.data?.message || 'Login failed');
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -72,7 +66,7 @@ const Login = () => {
                     required 
                 />
 
-                <button type="submit" className="login-button">Login</button>
+                <button type="submit" className="login-button" disabled={loading}>Login</button>
             </form>
             <p className="switch-link">
                 Don&apos;t have an account? <Link to="/signup">Signup</Link>

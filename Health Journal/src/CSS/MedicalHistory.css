@@ -1,104 +1,91 @@
-.medical-history {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 2rem;
-  background-color: var(--sd-white);
+.medical-history-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.medical-history h2 {
-  color: var(--sd-primary);
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
-.medical-history form {
-  width: 100%;
-  max-width: 600px; 
+.medical-history-header {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
 }
 
-.medical-history form input {
+.medical-history-header h2 {
+  color: #333;
+  margin: 0;
+}
+
+.move-to-dashboard-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.move-to-dashboard-btn:hover {
+  background-color: #0056b3;
+}
+
+.medical-history-form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.medical-history-form input,
+.medical-history-form button {
+  width: 100%;
   padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #444;
-  background-color: #333;
-  color: #fff;
   margin-bottom: 10px;
-}
-
-.medical-history form button {
-  padding: 12px;
-  background-color: #e50914;
-  color: white;
-  border-radius: 5px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.medical-history form button:hover {
-  background-color: #f40612;
-}
-
-.medical-history form button[type="button"] {
-  background-color: var(--sd-secondary);
-  color: white;
-  padding: 12px;
-  border-radius: 5px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  margin-left: 10px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.medical-history form button[type="button"]:hover {
-  background-color: var(--sd-hover);
-  transform: scale(1.05);
-}
-
-.medical-history form button[type="button"]:active {
-  transform: scale(0.95);
-}
-
-.history-item {
-  background-color: var(--sd-light-gray);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-.history-item strong {
-  color: var(--sd-secondary);
-}
-
-.history-item button {
-  background-color: var(--sd-primary);
-  color: var(--sd-white);
-  padding: 0.5rem 1rem;
-  border: none;
+  border: 1px solid #ddd;
   border-radius: 4px;
+}
+
+.medical-history-form button {
+  background-color: #28a745;
+  color: white;
+  border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.history-item button:hover {
-  background-color: var(--sd-hover);
+.medical-history-form button:hover {
+  background-color: #218838;
 }
 
-@media (max-width: 768px) {
-  .medical-history form input, .medical-history form button {
-    font-size: 14px;
-  }
+.medical-history-list {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
 
-  .history-item {
-    font-size: 14px;
-  }
+.medical-history-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.medical-history-list th,
+.medical-history-list td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.medical-history-list th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.medical-history-list tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
