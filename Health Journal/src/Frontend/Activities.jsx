@@ -8,7 +8,7 @@ const SymptomList = () => {
   useEffect(() => {
     const fetchSymptoms = async () => {
       try {
-        const response = await fetch("https://health-journal-project-3-1.onrender.com/api/symptoms");
+        const response = await fetch("https://health-journal-project-3.onrender.com/api/symptoms");
         if (!response.ok) {
           throw new Error(`HTTP Error! Status: ${response.status}`);
         }
